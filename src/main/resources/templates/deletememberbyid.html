@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Members</title>
+    <link rel="stylesheet" th:href="@{/styles.css}">
+</head>
+<body>
+
+<div class="centered-content">
+    <h1>List of members</h1>
+
+    <div th:if="${param.error}" class="error-message">
+        Could not delete member. Member may not exist.
+    </div>
+
+    <table class="centered-table">
+        <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Member ID</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="member : ${members}">
+            <td th:text="${member.firstName}">First Name</td>
+            <td th:text="${member.lastName}">Last Name</td>
+            <td th:text="${member.id}">Member ID</td>
+            <td>
+                <form th:action="@{'/admin/deletememberbyid/' + ${member.id}}" method="post">
+                    <button type="submit">Delete</button>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
