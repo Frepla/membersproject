@@ -26,7 +26,7 @@ public class MemberServiceImpl implements MemberService {
 
     @Autowired
     public MemberServiceImpl(AddressService addressService, MemberRepository memberRepository) {
-        this.addressService= addressService;
+        this.addressService = addressService;
         this.memberRepository = memberRepository;
     }
 

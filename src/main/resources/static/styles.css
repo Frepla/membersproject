@@ -3,6 +3,7 @@ body {
     color: white;
     min-height: 100vh;
     margin: 0;
+    padding-top: 20px;
 }
 
 .centered-content {
